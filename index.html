@@ -40,6 +40,7 @@
     .nav { display: grid; gap: 5px; }
     .nav button { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 12px; border: 0; border-left: 3px solid transparent; background: transparent; color: #435256; text-align: left; font: 14px Georgia, serif; }
     .nav button:hover, .nav button.active { border-left-color: var(--teal); background: rgba(255,255,255,.62); color: var(--teal-dark); }
+    .nav button.nav-divider { margin-top: 22px; padding-top: 22px; border-top: 1px solid #c9c3b4; }
     .nav-symbol { width: 20px; color: var(--teal); text-align: center; font-family: Arial, sans-serif; }
     .voice-card { margin-top: 34px; padding: 16px; border: 1px solid #c9c3b4; background: #f8f5ec; }
     .voice-card strong { display: block; margin-bottom: 8px; font-size: 14px; }
@@ -129,18 +130,19 @@
       <aside class="sidebar">
         <p class="eyebrow">Workspace</p>
         <nav class="nav" aria-label="Main navigation">
-          <button class="active"><b class="nav-symbol">+</b><span>Command Center</span></button>
-          <button onclick="location.href='resources/opportunities.html'"><b class="nav-symbol">O</b><span>Opportunities</span></button>
-          <button onclick="location.href='resources/bucket.html'"><b class="nav-symbol">B</b><span>The Bucket List</span></button>
-          <button onclick="location.href='resources/fleet.html'"><b class="nav-symbol">F</b><span>Fleet</span></button>
-          <button onclick="location.href='resources/trips.html'"><b class="nav-symbol">T</b><span>Trips</span></button>
-          <button onclick="location.href='resources/finance.html'"><b class="nav-symbol">$</b><span>Finance</span></button>
-          <button onclick="location.href='resources/advisor.html'"><b class="nav-symbol">A</b><span>AI Advisor</span></button>
+          <button class="active"><b class="nav-symbol">⌂</b><span>Command Center</span></button>
+          <button onclick="location.href='resources/calendar.html'"><b class="nav-symbol">C</b><span>Calendar</span></button>
+          <button class="nav-divider" onclick="location.href='resources/opportunities.html'"><b class="nav-symbol">O</b><span>Opportunities</span></button>
+          <button onclick="location.href='resources/trips.html'"><b class="nav-symbol">T</b><span>Trips în desfășurare</span></button>
+            <button class="nav-secondary nav-divider" onclick="location.href='resources/bucket.html'"><b class="nav-symbol">B</b><span>The Bucket List</span></button>
+            <button class="nav-secondary" onclick="location.href='resources/fleet.html'"><b class="nav-symbol">F</b><span>Fleet</span></button>
+            <button class="nav-secondary" onclick="location.href='resources/finance.html'"><b class="nav-symbol">$</b><span>Finance</span></button>
+            <button class="nav-secondary" onclick="location.href='resources/advisor.html'"><b class="nav-symbol">A</b><span>AI Advisor</span></button>
         </nav>
         <div class="voice-card"><strong>Voice capture</strong><p>Draft an opportunity from a short dispatcher note.</p><button class="voice-btn" id="voiceButton">F2 / Start voice</button></div>
       </aside>
       <main>
-        <div class="page-heading"><div><h2>Good morning, dispatcher.</h2><p>Here is the operational picture for your fleet.</p></div><div class="date">Monday, 21 September 2026<br>08:42 local time</div></div>
+        <div class="page-heading"><div><h2 id="welcomeGreeting">Good morning, dispatcher.</h2><p>Here is the operational picture for your fleet.</p></div><div class="date" id="localClock">Loading local time...</div></div>
         <section class="panel" id="bucketPanel" style="margin-bottom:20px">
           <div class="panel-header"><div><h3>The Bucket List</h3><span>Raw intake / convert to opportunity</span></div><span>15 new / 8 parsed / 2 errors</span></div>
           <div style="display:grid;gap:0">
@@ -200,6 +202,9 @@
     const voiceButton = document.getElementById('voiceButton');
     voiceButton.addEventListener('click', () => { voiceButton.classList.toggle('recording'); const recording = voiceButton.classList.contains('recording'); voiceButton.textContent = recording ? 'Stop / draft voice' : 'F2 / Start voice'; notify(recording ? 'Mock voice capture started.' : 'Mock opportunity draft created.'); });
     document.addEventListener('keydown', event => { if (event.key === 'F2') { event.preventDefault(); voiceButton.click(); } });
+    function updateLocalTime() { const now = new Date(); const hour = now.getHours(); const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'; const date = now.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }); document.getElementById('welcomeGreeting').textContent = `${greeting}, dispatcher.`; document.getElementById('localClock').innerHTML = `${date}<br>${time} local time`; }
+    updateLocalTime();
+    setInterval(updateLocalTime, 30000);
   </script>
 </body>
 </html>

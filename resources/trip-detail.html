@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trip Detail | T-CC</title>
+  <link rel="stylesheet" href="front.css">
+  <style>
+    .trip-grid { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr); gap:20px; }
+    .map-placeholder { min-height:270px; }
+    .doc-row { display:flex; justify-content:space-between; gap:15px; padding:14px 18px; border-bottom:1px solid #e5e1d8; font:12px Arial,sans-serif; }
+    .doc-row:last-child { border-bottom:0; }
+    .doc-row strong { font-weight:400; }
+    .doc-row small { display:block; margin-top:4px; color:var(--muted); }
+    .location { padding:20px; font:12px Arial,sans-serif; }
+    .location strong { display:block; margin-bottom:8px; font:25px Georgia,serif; }
+    @media(max-width:820px){.trip-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="shell"><header class="topbar"><div class="brand"><div class="mark">T</div><div><h1>T-CC Command Center</h1><p>Trip detail</p></div></div><div class="profile">Dispatcher / online</div></header>
+    <div class="layout"><aside class="sidebar"><p class="eyebrow">Workspace</p><nav class="nav"><a href="../index.html"><b>+</b><span>Command Center</span></a><a href="opportunities.html"><b>O</b><span>Opportunities</span></a><a href="trips.html"><b>T</b><span>Trips în desfășurare</span></a><a href="bucket.html"><b>B</b><span>The Bucket List</span></a><a href="fleet.html"><b>F</b><span>Fleet</span></a><a href="finance.html"><b>$</b><span>Finance</span></a><a href="advisor.html"><b>A</b><span>AI Advisor</span></a></nav></aside>
+      <main class="content"><div class="heading"><div><h2 id="tripTitle">Trip TR-0088</h2><p>Execution detail and communication history.</p></div><a class="secondary" href="trips.html">Back to trips</a></div>
+        <div class="grid"><div class="metric"><small>State</small><strong>In transit</strong></div><div class="metric"><small>ETA</small><strong>18:40</strong></div><div class="metric"><small>Progress</small><strong>64%</strong></div></div>
+        <div class="trip-grid stack"><div class="stack"><section class="panel"><div class="panel-head"><h3>Summary</h3><span>Trip execution</span></div><div class="location"><strong>Nuremberg → Frankfurt</strong><p>Truck: TM-01 / Volvo FH</p><p>Driver: Ion Popescu</p><p>Next checkpoint: Würzburg rest area</p><p>Last update: 08:35 local time</p></div></section><section class="panel"><div class="panel-head"><h3>Truck location</h3><span>Mock GPS</span></div><div class="map-placeholder"><div class="map-route"></div></div><div class="location"><strong>49.7913° N, 9.9534° E</strong><p>Last known position near Würzburg, Germany.</p></div></section></div>
+          <div class="stack"><section class="panel"><div class="panel-head"><h3>Attached documents</h3><span>3 files</span></div><div class="doc-row"><div><strong>CMR_0088.pdf</strong><small>Uploaded / 07:42</small></div><span class="status">Valid</span></div><div class="doc-row"><div><strong>Loading_photo_01.jpg</strong><small>Uploaded / 07:58</small></div><span class="status">Received</span></div><div class="doc-row"><div><strong>Insurance_TM01.pdf</strong><small>Fleet profile</small></div><span class="status">Valid</span></div></section><section class="panel"><div class="panel-head"><h3>WhatsApp documents</h3><span>Sent / received</span></div><div class="doc-row"><div><strong>CMR_0088.pdf</strong><small>Sent to client / 08:02</small></div><span class="status">Sent</span></div><div class="doc-row"><div><strong>Delivery_instructions.jpg</strong><small>Received from driver / 08:20</small></div><span class="status warn">Review</span></div></section><section class="panel"><div class="panel-head"><h3>Customs / Vamă</h3><span>Border documents</span></div><div class="doc-row"><div><strong>T1_transit.pdf</strong><small>Required for border transit</small></div><span class="status">Valid</span></div><div class="doc-row"><div><strong>Packing_list.pdf</strong><small>Attached to shipment</small></div><span class="status">Ready</span></div><div class="doc-row"><div><strong>Customs_declaration.pdf</strong><small>Broker review pending</small></div><span class="status warn">Review</span></div></section></div>
+        </div>
+      </main>
+    </div>
+  </div><script src="front.js"></script>
+</body>
+</html>
