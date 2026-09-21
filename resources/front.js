@@ -1,0 +1,2 @@
+document.querySelectorAll('[data-voice]').forEach(button=>button.addEventListener('click',()=>{button.textContent=button.textContent.includes('Start')?'Stop voice':'F2 / Start voice';button.classList.toggle('recording');}));
+document.querySelectorAll('[data-filter]').forEach(input=>input.addEventListener('input',event=>{const query=event.target.value.toLowerCase();document.querySelectorAll('[data-row]').forEach(row=>{row.hidden=query&&!row.textContent.toLowerCase().includes(query);});}));
