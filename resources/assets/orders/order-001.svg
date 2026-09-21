@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Mock transport order 001</title>
+  <desc id="desc">A clean illustrated order card for a Nuremberg to Frankfurt shipment.</desc>
+  <rect width="1200" height="760" fill="#f5f2ea"/>
+  <rect x="46" y="42" width="1108" height="676" rx="10" fill="#fffdf8" stroke="#d8d4c9" stroke-width="3"/>
+  <rect x="46" y="42" width="1108" height="112" rx="10" fill="#147d78"/>
+  <text x="86" y="92" fill="#fffdf8" font-family="Georgia,serif" font-size="28" font-weight="700">T-CC TRANSPORT ORDER</text>
+  <text x="86" y="126" fill="#d9f0ea" font-family="Arial,sans-serif" font-size="17" letter-spacing="2">MOCK DOCUMENT / ORDER 0088</text>
+  <text x="1055" y="104" text-anchor="end" fill="#fffdf8" font-family="Arial,sans-serif" font-size="18">WON</text>
+  <circle cx="1068" cy="120" r="7" fill="#e2a928"/>
+  <text x="88" y="216" fill="#66767a" font-family="Arial,sans-serif" font-size="16" letter-spacing="2">CUSTOMER</text>
+  <text x="88" y="250" fill="#15242a" font-family="Georgia,serif" font-size="31">ABC Logistics</text>
+  <text x="88" y="302" fill="#66767a" font-family="Arial,sans-serif" font-size="16" letter-spacing="2">ROUTE</text>
+  <text x="88" y="344" fill="#15242a" font-family="Georgia,serif" font-size="32">Nuremberg</text>
+  <path d="M300 333 H492" stroke="#d65a43" stroke-width="5"/>
+  <path d="M475 317 L500 333 L475 349" fill="none" stroke="#d65a43" stroke-width="5"/>
+  <text x="532" y="344" fill="#15242a" font-family="Georgia,serif" font-size="32">Frankfurt</text>
+  <line x1="88" y1="394" x2="1112" y2="394" stroke="#e5e1d8" stroke-width="2"/>
+  <text x="88" y="442" fill="#66767a" font-family="Arial,sans-serif" font-size="16" letter-spacing="2">CARGO</text>
+  <text x="88" y="477" fill="#15242a" font-family="Arial,sans-serif" font-size="21">18 pallets / 12,400 kg / curtainsider</text>
+  <text x="88" y="546" fill="#66767a" font-family="Arial,sans-serif" font-size="16" letter-spacing="2">AGREED REVENUE</text>
+  <text x="88" y="590" fill="#0d5e5c" font-family="Georgia,serif" font-size="38" font-weight="700">1,450 EUR</text>
+  <rect x="823" y="474" width="289" height="116" rx="6" fill="#e8f0ed"/>
+  <text x="850" y="512" fill="#0d5e5c" font-family="Arial,sans-serif" font-size="15" letter-spacing="1">ASSIGNED ASSET</text>
+  <text x="850" y="552" fill="#15242a" font-family="Georgia,serif" font-size="25">TM-01 / Ion</text>
+  <text x="88" y="672" fill="#66767a" font-family="Arial,sans-serif" font-size="14">Preview asset only. No customer or shipment data.</text>
+</svg>

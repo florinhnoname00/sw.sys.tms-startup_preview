@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Bucket List | T-CC</title>
+  <link rel="stylesheet" href="front.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><div class="brand"><div class="mark">T</div><div><h1>T-CC Command Center</h1><p>Raw intake and opportunity conversion</p></div></div><div class="profile">Dispatcher / online</div></header>
+    <div class="layout">
+      <aside class="sidebar"><p class="eyebrow">Workspace</p><nav class="nav"><a href="../index.html"><b>+</b><span>Command Center</span></a><a href="opportunities.html"><b>O</b><span>Opportunities</span></a><a class="active" href="bucket.html"><b>B</b><span>The Bucket List</span></a><a href="fleet.html"><b>F</b><span>Fleet</span></a><a href="trips.html"><b>T</b><span>Trips</span></a><a href="finance.html"><b>$</b><span>Finance</span></a><a href="advisor.html"><b>A</b><span>AI Advisor</span></a></nav></aside>
+      <main class="content">
+        <div class="heading"><div><h2>The Bucket List</h2><p>Raw incoming loads waiting for validation and conversion.</p></div><button class="primary" onclick="notify('Mock: intake listener is ready.')">+ Add intake</button></div>
+        <div class="grid"><div class="metric"><small>New</small><strong>15</strong></div><div class="metric"><small>Parsed</small><strong>08</strong></div><div class="metric"><small>Needs review</small><strong>02</strong></div></div>
+        <div class="stack">
+          <section class="panel"><div class="panel-head"><h3>Incoming sources</h3><span>Bucket -&gt; Opportunity</span></div><div class="form-row"><input data-filter placeholder="Filter source, route or client"></div><table class="table"><thead><tr><th>Source</th><th>Route</th><th>Details</th><th>Status</th><th>Action</th></tr></thead><tbody><tr data-row><td><strong style="color:var(--teal-dark)">TIMOCOM</strong></td><td>Nuremberg - Frankfurt</td><td>ABC Logistics / 1,450 EUR</td><td><span class="status">Parsed</span></td><td><button class="primary" onclick="notify('Mock: converted to Opportunity #125.')">Convert</button></td></tr><tr data-row><td><strong style="color:var(--blue)">EMAIL</strong></td><td>Arad - Vienna</td><td>Baltic Cargo / price missing</td><td><span class="status warn">Review</span></td><td><button class="primary" onclick="notify('Mock: manual review opened.')">Review</button></td></tr><tr data-row><td><strong style="color:var(--coral)">VOICE F2</strong></td><td>Timisoara - Munich</td><td>DSV Logistics / 1,500 EUR</td><td><span class="status">New</span></td><td><button class="primary" onclick="notify('Mock: voice draft opened.')">Open draft</button></td></tr><tr data-row><td><strong style="color:var(--yellow)">EXCEL</strong></td><td>Cluj - Lyon</td><td>Import batch / invalid date</td><td><span class="status danger">Error</span></td><td><button class="primary" onclick="notify('Mock: import error details opened.')">Details</button></td></tr></tbody></table></section>
+          <section class="panel"><div class="panel-head"><h3>Processing flow</h3><span>Mock state machine</span></div><div class="cards"><div class="metric"><small>1. Intake</small><strong>Raw</strong></div><div class="metric"><small>2. Parse</small><strong>Validated</strong></div><div class="metric"><small>3. Convert</small><strong>Opportunity</strong></div><div class="metric"><small>4. Route</small><strong>FSM</strong></div></div></section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script>const toast=document.getElementById('toast');let toastTimer;function notify(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);}</script>
+  <script src="front.js"></script>
+</body>
+</html>
