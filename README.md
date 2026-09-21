@@ -7,7 +7,6 @@ Preview static pentru aplicația TMS Startup.
 Deschide `index.html` din rădăcina proiectului într-un browser sau pornește un server local:
 
 ```bash
-cd sw.sys.tms-startup_preview
 python3 -m http.server 8000
 ```
 

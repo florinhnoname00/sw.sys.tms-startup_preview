@@ -103,6 +103,12 @@
         font-weight: 700;
       }
 
+      .button:focus-visible {
+        outline: 3px solid #9fb7ff;
+        outline-offset: 3px;
+        box-shadow: 0 0 0 6px rgba(40, 85, 217, 0.15);
+      }
+
       .button-primary {
         background: var(--primary);
         color: #fff;
@@ -172,9 +178,21 @@
         border: 1px solid var(--border);
       }
 
+      .mini-panel h3 {
+        margin: 14px 0 12px;
+      }
+
       .route-card {
         background: linear-gradient(135deg, #2855d9 0%, #4d78f1 100%);
         color: #fff;
+      }
+
+      .route-card h3 {
+        margin: 14px 0 8px;
+      }
+
+      .route-card p {
+        color: rgba(255, 255, 255, 0.86);
       }
 
       .route-points {
@@ -306,8 +324,8 @@
             <div class="dashboard-row">
               <div class="mini-panel route-card">
                 <span class="tag">Rută prioritară</span>
-                <h3 style="margin: 14px 0 8px">București → Cluj-Napoca</h3>
-                <p style="color: rgba(255, 255, 255, 0.86)">
+                <h3>București → Cluj-Napoca</h3>
+                <p>
                   Monitorizare încărcare, ETA și confirmare livrare în același ecran.
                 </p>
                 <div class="route-points">
@@ -323,7 +341,7 @@
               </div>
               <div class="mini-panel">
                 <span class="tag">KPIs</span>
-                <h3 style="margin: 14px 0 12px">Operare live</h3>
+                <h3>Operare live</h3>
                 <p>12 curse active</p>
                 <p>4 alerte procesate</p>
                 <p>98% confirmări la timp</p>
@@ -332,13 +350,13 @@
             <div class="dashboard-row">
               <div class="mini-panel">
                 <span class="tag">Notificări</span>
-                <h3 style="margin: 14px 0 12px">Feed evenimente</h3>
+                <h3>Feed evenimente</h3>
                 <p>Șofer alocat automat pentru cursa #TMS-1042.</p>
                 <p>Documentele de transport au fost validate.</p>
               </div>
               <div class="mini-panel">
                 <span class="tag">Preview</span>
-                <h3 style="margin: 14px 0 12px">Disponibil imediat</h3>
+                <h3>Disponibil imediat</h3>
                 <p>Pagina poate fi deschisă local fără build sau instalare.</p>
               </div>
             </div>
