@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMS Startup Preview</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --primary: #2855d9;
+        --primary-soft: #e9efff;
+        --text: #14213d;
+        --muted: #5f6c8f;
+        --border: #dce3f1;
+        --success: #1f9d6b;
+        --shadow: 0 20px 45px rgba(20, 33, 61, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #eef3ff 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      .page {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+        align-items: center;
+      }
+
+      .hero-copy,
+      .preview-shell,
+      .section-card,
+      .metric,
+      .flow-step {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: 32px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin: 18px 0 14px;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1.05;
+      }
+
+      .lead {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin: 26px 0 24px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 13px 20px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .button-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .button-secondary {
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: #fff;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .metric {
+        padding: 16px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+      }
+
+      .preview-shell {
+        padding: 18px;
+      }
+
+      .preview-topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .preview-topbar span,
+      .tag {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .tag {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #f7f9fd;
+        border: 1px solid var(--border);
+      }
+
+      .preview-dashboard {
+        display: grid;
+        gap: 14px;
+      }
+
+      .dashboard-row {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 14px;
+      }
+
+      .mini-panel {
+        padding: 18px;
+        border-radius: 18px;
+        background: #f9fbff;
+        border: 1px solid var(--border);
+      }
+
+      .route-card {
+        background: linear-gradient(135deg, #2855d9 0%, #4d78f1 100%);
+        color: #fff;
+      }
+
+      .route-points {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .route-point {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .section {
+        margin-top: 28px;
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+
+      .section-card {
+        padding: 24px;
+      }
+
+      .section-card p,
+      .flow-step p,
+      .mini-panel p,
+      .metric span {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+
+      .flow-step {
+        padding: 22px;
+      }
+
+      .flow-number {
+        display: inline-flex;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-bottom: 14px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        color: var(--success);
+      }
+
+      .status::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--success);
+      }
+
+      footer {
+        margin-top: 32px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 720px) {
+        .dashboard-row,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Preview pentru app</span>
+          <h1>TMS Startup</h1>
+          <p class="lead">
+            O prezentare rapidă pentru o aplicație de transport și monitorizare,
+            construită ca pagină statică ușor de deschis și partajat.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="#modules">Vezi modulele</a>
+            <a class="button button-secondary" href="#flow">Flux startup</a>
+          </div>
+          <div class="stats">
+            <div class="metric">
+              <strong>3</strong>
+              <span>zone cheie: dispecerat, trasee, status live</span>
+            </div>
+            <div class="metric">
+              <strong>24/7</strong>
+              <span>vizibilitate pentru operațiuni și alerte</span>
+            </div>
+            <div class="metric">
+              <strong>100%</strong>
+              <span>fără dependențe externe pentru preview</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-shell" aria-label="Preview dashboard">
+          <div class="preview-topbar">
+            <strong>TMS Dashboard</strong>
+            <span class="status">Sistem activ</span>
+          </div>
+          <div class="preview-dashboard">
+            <div class="dashboard-row">
+              <div class="mini-panel route-card">
+                <span class="tag">Rută prioritară</span>
+                <h3 style="margin: 14px 0 8px">București → Cluj-Napoca</h3>
+                <p style="color: rgba(255, 255, 255, 0.86)">
+                  Monitorizare încărcare, ETA și confirmare livrare în același ecran.
+                </p>
+                <div class="route-points">
+                  <div class="route-point">
+                    <span>Pickup</span>
+                    <strong>09:15</strong>
+                  </div>
+                  <div class="route-point">
+                    <span>ETA final</span>
+                    <strong>14:40</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="mini-panel">
+                <span class="tag">KPIs</span>
+                <h3 style="margin: 14px 0 12px">Operare live</h3>
+                <p>12 curse active</p>
+                <p>4 alerte procesate</p>
+                <p>98% confirmări la timp</p>
+              </div>
+            </div>
+            <div class="dashboard-row">
+              <div class="mini-panel">
+                <span class="tag">Notificări</span>
+                <h3 style="margin: 14px 0 12px">Feed evenimente</h3>
+                <p>Șofer alocat automat pentru cursa #TMS-1042.</p>
+                <p>Documentele de transport au fost validate.</p>
+              </div>
+              <div class="mini-panel">
+                <span class="tag">Preview</span>
+                <h3 style="margin: 14px 0 12px">Disponibil imediat</h3>
+                <p>Pagina poate fi deschisă local fără build sau instalare.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="modules">
+        <h2>Module prezentate</h2>
+        <div class="section-grid">
+          <article class="section-card">
+            <h3>Dispecerat</h3>
+            <p>
+              Vizibilitate centralizată pentru curse active, alocări și blocaje operaționale.
+            </p>
+          </article>
+          <article class="section-card">
+            <h3>Trasee</h3>
+            <p>
+              Evidențiază puncte cheie, ETA-uri și pașii principali ai unei livrări.
+            </p>
+          </article>
+          <article class="section-card">
+            <h3>Status live</h3>
+            <p>
+              Rezumă indicatori operaționali și evenimente recente pentru un demo clar.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="flow">
+        <h2>Flux de startup</h2>
+        <div class="flow">
+          <article class="flow-step">
+            <span class="flow-number">1</span>
+            <h3>Deschidere instant</h3>
+            <p>Preview-ul pornește direct dintr-un singur fișier HTML.</p>
+          </article>
+          <article class="flow-step">
+            <span class="flow-number">2</span>
+            <h3>Prezentare rapidă</h3>
+            <p>Conținutul scoate în evidență modulele principale ale aplicației.</p>
+          </article>
+          <article class="flow-step">
+            <span class="flow-number">3</span>
+            <h3>Partajare simplă</h3>
+            <p>Poate fi servit local sau publicat ulterior fără modificări structurale.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer>sw.sys.tms-startup_preview · preview static pentru aplicație</footer>
+    </main>
+  </body>
+</html>
