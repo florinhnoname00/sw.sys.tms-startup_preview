@@ -105,6 +105,9 @@
     .map-placeholder { min-height: 220px; display: grid; place-items: center; position: relative; overflow: hidden; background-color: #dfe9e4; background-image: linear-gradient(30deg, transparent 48%, rgba(20,125,120,.16) 49%, transparent 51%), linear-gradient(125deg, transparent 48%, rgba(71,122,166,.15) 49%, transparent 51%); background-size: 80px 80px, 105px 105px; }
     .map-placeholder::after { content: 'LIVE OPERATIONS MAP'; padding: 11px 14px; border: 1px solid rgba(13,94,92,.28); background: rgba(255,253,248,.85); color: var(--teal-dark); font: 700 10px Arial, sans-serif; letter-spacing: .13em; }
     .map-route { position: absolute; width: 66%; height: 2px; background: var(--coral); transform: rotate(-18deg); box-shadow: 0 0 0 5px rgba(214,90,67,.12); }
+    #bucketPanel { display: none; }
+    .side-stack #bucketPanel [style*="grid-template-columns:82px"] { grid-template-columns: 1fr !important; gap: 5px !important; }
+    .side-stack #bucketPanel [style*="grid-template-columns:82px"] button { justify-self: start; }
 
     .toast { position: fixed; right: 22px; bottom: 22px; max-width: 290px; padding: 13px 15px; border: 1px solid var(--teal); background: var(--ink); color: white; font: 12px Arial, sans-serif; opacity: 0; transform: translateY(15px); pointer-events: none; transition: .2s ease; }
     .toast.show { opacity: 1; transform: translateY(0); }
@@ -128,6 +131,7 @@
         <nav class="nav" aria-label="Main navigation">
           <button class="active"><b class="nav-symbol">+</b><span>Command Center</span></button>
           <button onclick="location.href='resources/opportunities.html'"><b class="nav-symbol">O</b><span>Opportunities</span></button>
+          <button onclick="location.href='resources/bucket.html'"><b class="nav-symbol">B</b><span>The Bucket List</span></button>
           <button onclick="location.href='resources/fleet.html'"><b class="nav-symbol">F</b><span>Fleet</span></button>
           <button onclick="location.href='resources/trips.html'"><b class="nav-symbol">T</b><span>Trips</span></button>
           <button onclick="location.href='resources/finance.html'"><b class="nav-symbol">$</b><span>Finance</span></button>
@@ -137,6 +141,15 @@
       </aside>
       <main>
         <div class="page-heading"><div><h2>Good morning, dispatcher.</h2><p>Here is the operational picture for your fleet.</p></div><div class="date">Monday, 21 September 2026<br>08:42 local time</div></div>
+        <section class="panel" id="bucketPanel" style="margin-bottom:20px">
+          <div class="panel-header"><div><h3>The Bucket List</h3><span>Raw intake / convert to opportunity</span></div><span>15 new / 8 parsed / 2 errors</span></div>
+          <div style="display:grid;gap:0">
+            <div style="display:grid;grid-template-columns:82px minmax(0,1fr) 110px 150px;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid #e5e1d8;font:12px Arial,sans-serif"><strong style="color:var(--teal-dark)">TIMOCOM</strong><span><b style="font-family:Georgia,serif;font-size:14px">Nuremberg → Frankfurt</b><small style="display:block;margin-top:3px;color:var(--muted)">ABC Logistics / 1,450 EUR</small></span><span class="tag">parsed</span><button class="board-tools" style="padding:7px 9px;border:1px solid var(--line);background:#f8f5ec;color:var(--teal-dark);font:700 10px Arial,sans-serif;text-transform:uppercase" onclick="notify('Mock: converted to Opportunity #125.')">Convert</button></div>
+            <div style="display:grid;grid-template-columns:82px minmax(0,1fr) 110px 150px;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid #e5e1d8;font:12px Arial,sans-serif"><strong style="color:var(--blue)">EMAIL</strong><span><b style="font-family:Georgia,serif;font-size:14px">Arad → Vienna</b><small style="display:block;margin-top:3px;color:var(--muted)">Baltic Cargo / price missing</small></span><span class="tag hot">review</span><button class="board-tools" style="padding:7px 9px;border:1px solid var(--line);background:#f8f5ec;color:var(--teal-dark);font:700 10px Arial,sans-serif;text-transform:uppercase" onclick="notify('Mock: manual review opened.')">Review</button></div>
+            <div style="display:grid;grid-template-columns:82px minmax(0,1fr) 110px 150px;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid #e5e1d8;font:12px Arial,sans-serif"><strong style="color:var(--coral)">VOICE F2</strong><span><b style="font-family:Georgia,serif;font-size:14px">Timișoara → München</b><small style="display:block;margin-top:3px;color:var(--muted)">DSV Logistics / 1,500 EUR</small></span><span class="tag">new</span><button class="board-tools" style="padding:7px 9px;border:1px solid var(--line);background:#f8f5ec;color:var(--teal-dark);font:700 10px Arial,sans-serif;text-transform:uppercase" onclick="notify('Mock: voice draft opened.')">Open draft</button></div>
+            <div style="display:grid;grid-template-columns:82px minmax(0,1fr) 110px 150px;align-items:center;gap:12px;padding:12px 18px;font:12px Arial,sans-serif"><strong style="color:var(--yellow)">EXCEL</strong><span><b style="font-family:Georgia,serif;font-size:14px">Cluj → Lyon</b><small style="display:block;margin-top:3px;color:var(--muted)">Import batch / invalid date</small></span><span class="tag hot">error</span><button class="board-tools" style="padding:7px 9px;border:1px solid var(--line);background:#f8f5ec;color:var(--teal-dark);font:700 10px Arial,sans-serif;text-transform:uppercase" onclick="notify('Mock: import error details opened.')">Details</button></div>
+          </div>
+        </section>
         <section class="kpis" aria-label="Key performance indicators">
           <article class="kpi"><div class="kpi-label">Open opportunities</div><div class="kpi-value">15</div><div class="kpi-delta">+4 since yesterday</div></article>
           <article class="kpi"><div class="kpi-label">Active trips</div><div class="kpi-value">08</div><div class="kpi-delta">6 on schedule</div></article>
@@ -158,6 +171,20 @@
             <section class="panel"><div class="panel-header"><h3>Fleet pulse</h3><span>12 units</span></div><div class="fleet-list"><div class="fleet-row"><span class="fleet-code">TM-01</span><div><strong>Ion Popescu</strong><small>Nuremberg / 640 km</small></div><span class="fleet-status">ready</span></div><div class="fleet-row"><span class="fleet-code">TM-03</span><div><strong>Maria Ionescu</strong><small>Munich / documents</small></div><span class="fleet-status busy">on route</span></div><div class="fleet-row"><span class="fleet-code">TM-07</span><div><strong>Service bay</strong><small>Brake inspection</small></div><span class="fleet-status service">service</span></div></div></section>
           </div>
         </div>
+        <section class="panel" style="margin-top:20px">
+          <div class="panel-header"><div><h3>Orders preview</h3><span>Mock documents and cargo references</span></div><button class="board-tools" style="padding:7px 9px;border:1px solid var(--line);background:#f8f5ec;color:var(--teal-dark);font:700 10px Arial,sans-serif;text-transform:uppercase" onclick="notify('Mock: Orders view will be connected to the contract layer.')">View orders</button></div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:14px">
+            <a href="resources/assets/orders/order-001.svg" target="_blank" style="display:block;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none">
+              <img src="resources/assets/orders/order-001.svg" alt="Mock order 0088" style="display:block;width:100%;aspect-ratio:1.58;object-fit:cover;border-bottom:1px solid var(--line)"><div style="padding:10px 12px;font:12px Arial,sans-serif"><strong style="display:block;font-family:Georgia,serif;font-size:14px">Order 0088</strong><span style="color:var(--muted)">Nuremberg - Frankfurt / 1,450 EUR</span></div>
+            </a>
+            <a href="resources/assets/orders/cmr-mock.svg" target="_blank" style="display:block;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none">
+              <img src="resources/assets/orders/cmr-mock.svg" alt="Mock CMR document" style="display:block;width:100%;aspect-ratio:1.58;object-fit:cover;border-bottom:1px solid var(--line)"><div style="padding:10px 12px;font:12px Arial,sans-serif"><strong style="display:block;font-family:Georgia,serif;font-size:14px">CMR document</strong><span style="color:var(--muted)">Order 0088 / preview document</span></div>
+            </a>
+            <a href="resources/assets/orders/cargo-preview.svg" target="_blank" style="display:block;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none">
+              <img src="resources/assets/orders/cargo-preview.svg" alt="Mock cargo preview" style="display:block;width:100%;aspect-ratio:1.58;object-fit:cover;border-bottom:1px solid var(--line)"><div style="padding:10px 12px;font:12px Arial,sans-serif"><strong style="display:block;font-family:Georgia,serif;font-size:14px">Cargo preview</strong><span style="color:var(--muted)">18 pallets / curtainsider</span></div>
+            </a>
+          </div>
+        </section>
         <div class="bottom-grid"><section class="panel"><div class="panel-header"><h3>Operations timeline</h3><span>Latest events</span></div><div class="timeline"><div class="timeline-item"><div class="timeline-time">08:35</div><div><strong>Opportunity #125 moved to negotiating</strong><p>Dispatcher added a callback at 16:00.</p></div></div><div class="timeline-item"><div class="timeline-time">08:18</div><div><strong>TM-01 marked ready</strong><p>Pre-trip checklist passed all mock checks.</p></div></div><div class="timeline-item"><div class="timeline-time">07:50</div><div><strong>Voice draft created</strong><p>Route and quoted price extracted for review.</p></div></div></div></section><section class="panel"><div class="panel-header"><h3>Live operations map</h3><span>Mock view</span></div><div class="map-placeholder"><div class="map-route"></div></div></section></div>
       </main>
     </div>
