@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Preview | T-CC</title>
+  <link rel="stylesheet" href="front.css">
+  <style>
+    .order-preview { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); gap: 20px; }
+    .document-image { display: block; width: 100%; background: #e9e5d9; }
+    .detail-list { margin: 0; padding: 4px 18px 16px; }
+    .detail-row { display: flex; justify-content: space-between; gap: 18px; padding: 14px 0; border-bottom: 1px solid #e5e1d8; font: 12px Arial, sans-serif; }
+    .detail-row span { color: var(--muted); }
+    .detail-row strong { text-align: right; font-weight: 400; }
+    .order-actions { display: flex; gap: 8px; padding: 0 18px 18px; }
+    .secondary { padding: 10px 13px; border: 1px solid var(--line); border-radius: 3px; background: #f8f5ec; color: var(--teal-dark); font: 700 11px Arial, sans-serif; text-decoration: none; text-transform: uppercase; }
+    @media (max-width: 820px) { .order-preview { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><div class="brand"><div class="mark">T</div><div><h1>T-CC Command Center</h1><p>Order preview</p></div></div><div class="profile">Dispatcher / online</div></header>
+    <div class="layout">
+      <aside class="sidebar"><p class="eyebrow">Workspace</p><nav class="nav"><a href="../index.html"><b>+</b><span>Command Center</span></a><a class="active" href="opportunities.html"><b>O</b><span>Opportunities</span></a><a href="fleet.html"><b>F</b><span>Fleet</span></a><a href="trips.html"><b>T</b><span>Trips</span></a><a href="finance.html"><b>$</b><span>Finance</span></a><a href="advisor.html"><b>A</b><span>AI Advisor</span></a></nav></aside>
+      <main class="content">
+        <div class="heading"><div><h2>Order 0088</h2><p>Created from Opportunity #125 after acceptance.</p></div><a class="secondary" href="opportunities.html">Back to opportunities</a></div>
+        <div class="order-preview">
+          <section class="panel"><div class="panel-head"><h3>Order document</h3><span>Mock preview</span></div><img class="document-image" src="assets/orders/order-001.svg" alt="Mock transport order 0088"><div class="order-actions"><a class="secondary" href="assets/orders/cmr-mock.svg" target="_blank">Open CMR</a><a class="secondary" href="assets/orders/cargo-preview.svg" target="_blank">Open cargo</a></div></section>
+          <div class="stack"><section class="panel"><div class="panel-head"><h3>Order details</h3><span>Accepted</span></div><div class="detail-list"><div class="detail-row"><span>Opportunity</span><strong>#125</strong></div><div class="detail-row"><span>Customer</span><strong>ABC Logistics</strong></div><div class="detail-row"><span>Route</span><strong>Nuremberg - Frankfurt</strong></div><div class="detail-row"><span>Cargo</span><strong>18 pallets / 12,400 kg</strong></div><div class="detail-row"><span>Assigned truck</span><strong>TM-01 / Ion</strong></div><div class="detail-row"><span>Revenue</span><strong>1,450 EUR</strong></div></div></section><section class="panel"><div class="panel-head"><h3>Next state</h3><span>FSM mock</span></div><div class="notice"><i class="dot"></i><div><strong>Ready for dispatch</strong><p>The next transition is Order -&gt; Dispatch.</p></div></div></section></div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

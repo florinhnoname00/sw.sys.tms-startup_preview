@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" role="img" aria-labelledby="title desc">
+  <title id="title">Mock CMR document</title>
+  <desc id="desc">A stylized blank CMR transport document used in the T-CC preview.</desc>
+  <rect width="1000" height="720" fill="#dfe5e2"/>
+  <rect x="90" y="35" width="820" height="650" fill="#fff" stroke="#c5cbc7" stroke-width="3"/>
+  <text x="135" y="92" fill="#15242a" font-family="Arial,sans-serif" font-size="28" font-weight="700">CMR</text>
+  <text x="865" y="90" text-anchor="end" fill="#66767a" font-family="Arial,sans-serif" font-size="14">MOCK / PREVIEW</text>
+  <line x1="130" y1="116" x2="870" y2="116" stroke="#147d78" stroke-width="4"/>
+  <g fill="none" stroke="#cfd5d1" stroke-width="2">
+    <rect x="130" y="145" width="740" height="72"/><rect x="130" y="217" width="740" height="72"/>
+    <rect x="130" y="289" width="740" height="72"/><rect x="130" y="361" width="740" height="105"/>
+    <rect x="130" y="466" width="740" height="100"/>
+  </g>
+  <g fill="#66767a" font-family="Arial,sans-serif" font-size="13">
+    <text x="150" y="171">SENDER / EXPEDITEUR</text><text x="150" y="243">CONSIGNEE / DESTINATARIE</text>
+    <text x="150" y="315">PLACE OF LOADING / LIEU DE PRISE EN CHARGE</text><text x="150" y="387">GOODS / MARCHANDISE</text>
+    <text x="150" y="492">CARRIER NOTES / OBSERVATII</text>
+  </g>
+  <g fill="#15242a" font-family="Georgia,serif" font-size="22">
+    <text x="150" y="198">ABC Logistics</text><text x="150" y="270">Frankfurt Distribution Hub</text>
+    <text x="150" y="342">Nuremberg, 21 September 2026</text><text x="150" y="422">18 pallets / general cargo / 12,400 kg</text>
+  </g>
+  <circle cx="790" cy="612" r="38" fill="#e8f0ed" stroke="#147d78" stroke-width="3"/>
+  <path d="M772 612 l12 12 25-28" fill="none" stroke="#147d78" stroke-width="5"/>
+  <text x="730" y="665" fill="#66767a" font-family="Arial,sans-serif" font-size="13">Document mock</text>
+</svg>
